@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-page: #101014;
+  --color-surface: #17171c;
+  --color-raised: #1e1e24;
+  --color-line: #2a2a32;
+  --color-line-light: #232329;
+  --color-muted: #8b8b9a;
+  --color-dim: #a8a8b8;
+  --color-body: #c8c8d4;
+  --color-heading: #e8e8ee;
+  --color-bright: #f5f5f7;
+  --color-accent: #d4b45c;
+  --color-accent-dim: #b89840;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Courier New', Courier, 'Liberation Mono', monospace;
+  background: var(--color-page);
+  color: var(--color-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(212,180,92,0.3);
+  color: #f5f5f7;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2a32; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a44; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+.anim-in   { animation: fadeIn 0.4s ease-out forwards; }
+.anim-in-1 { animation: fadeIn 0.4s 0.05s ease-out both; }
+.anim-in-2 { animation: fadeIn 0.4s 0.10s ease-out both; }
+.anim-in-3 { animation: fadeIn 0.4s 0.15s ease-out both; }
+
+.cursor-blink::after {
+  content: '▌';
+  animation: blink 1s step-end infinite;
+  color: var(--color-accent);
+  margin-left: 2px;
+}
